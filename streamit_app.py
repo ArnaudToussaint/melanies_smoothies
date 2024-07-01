@@ -2,6 +2,7 @@
 import streamlit as st
 import requests
 import pandas as pd
+import json
 from snowflake.snowpark.functions import col, when_matched
 
 # Write directly to the app
@@ -44,9 +45,14 @@ if ingredients_list:
         st.subheader(fruit_chosen +' nutrition information')
         fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
         json_data=fruityvice_response.json()
+        try:
+            json_tab=json_data['nutritions']
+        except:
+            json_tab=json.loads('{"No data": ""}')
+            
         fv_df=st.dataframe(
             #data=fruityvice_response.json(),
-            data=json_data['nutritions'],
+            data=json_tab,
             hide_index=False,
             use_container_width=True)
 
