@@ -13,7 +13,7 @@ json_results=worldbank_response.json()
 #    json_tab=json.loads('{"No data": ""}')
 
 
-df0 = pd.dataframe(
+df0 = st.dataframe(
     data=json_results,
     hide_index=False,
     use_container_width=True)
