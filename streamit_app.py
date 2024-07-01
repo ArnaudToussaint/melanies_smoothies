@@ -54,6 +54,7 @@ if ingredients_list:
             hide_index=False,
             use_container_width=True)
 
+    st.dataframe(df.style.highlight_max(axis=0))
     #st.write(ingredients_string)
 
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
