@@ -1,6 +1,10 @@
 import random
 import pandas as pd
 import streamlit as st
+import requests
+import json
+
+json_results=request.get('https://api.worldbank.org/v2/country/FR/indicator/SP.POP.TOTL?date=2011:2020&format=json')
 
 df = pd.DataFrame(
     {
