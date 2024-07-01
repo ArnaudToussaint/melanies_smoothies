@@ -8,6 +8,7 @@ df = pd.DataFrame(
         "url": ["https://roadmap.streamlit.app", "https://extras.streamlit.app", "https://issues.streamlit.app"],
         "stars": [random.randint(0, 1000) for _ in range(3)],
         "views_history": [[random.randint(0, 5000) for _ in range(30)] for _ in range(3)],
+        "views_update": [[random.randint(0, 100) for _ in range(30)] for _ in range(3)],
     }
 )
 st.dataframe(
@@ -22,6 +23,9 @@ st.dataframe(
         "url": st.column_config.LinkColumn("App URL"),
         "views_history": st.column_config.LineChartColumn(
             "Views (past 30 days)", y_min=0, y_max=5000
+        ),
+        "views_update": st.column_config.BarChartColumn(
+            "Updates", y_min=0, y_max=100
         ),
     },
     hide_index=True,
