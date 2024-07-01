@@ -14,7 +14,7 @@ except:
 
 
 df0 = st.dataframe(
-    data=json_results,
+    data=json_tab,
     hide_index=False)
 
 df = pd.DataFrame(
