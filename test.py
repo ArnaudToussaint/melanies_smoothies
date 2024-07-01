@@ -7,10 +7,10 @@ import json
 worldbank_response=requests.get('https://api.worldbank.org/v2/country/FR/indicator/SP.POP.TOTL?date=2011:2020&format=json')
 json_results=worldbank_response.json()
 
-#try:
-#    json_tab=json_results['nutritions']
-#except:
-#    json_tab=json.loads('{"No data": ""}')
+try:
+    json_tab=json_results[1]
+except:
+    json_tab=json.loads('{"No data": ""}')
 
 
 df0 = st.dataframe(
