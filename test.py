@@ -15,8 +15,7 @@ json_results=worldbank_response.json()
 
 df0 = st.dataframe(
     data=json_results,
-    hide_index=False,
-    use_container_width=True)
+    hide_index=False)
 
 df = pd.DataFrame(
     {
