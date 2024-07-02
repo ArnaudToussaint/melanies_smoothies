@@ -28,7 +28,7 @@ name_on_order = st.text_input("Name on Smoothie:")
 #st.write("The name on your Smoothie will be:", name_on_order)
 st.info("The name on your Smoothie will be: " + name_on_order)
 if name_on_order:
-    st.toast(name_on_order)
+    st.ballon()
 
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:'
