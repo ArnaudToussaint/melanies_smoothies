@@ -4,23 +4,16 @@ import pandas as pd
 import requests
 import json
 from snowflake.snowpark.functions import col, when_matched
-from snowflake.snowpark.context import get_active_session
-
 
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie :cup_with_straw:")
 st.write("""Choose the fruits you want in your custom Smoothie!""")
 
-#session = get_active_session()
-
-#cnx = st.connection("snowflake")
-#session = cnx.session()
-
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
 
 # Write directly to the app
 st.title("Zena's Amazing Athleisure Catalog")
-
 
 my_dataframe = session.table("zenas_athleisure_db.products.color_or_style_for_website").select(col("color_or_style"),col("file_name"))
 catalog_data = session.table("zenas_athleisure_db.products.catalog_for_website")
